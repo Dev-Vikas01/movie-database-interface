@@ -1,0 +1,780 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f172a;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  background-color: #0f172a;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+
+  background: rgba(17, 24, 39, 0.7);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  color: white;
+}
+
+.logo-icon {
+  color: crimson;
+  font-size: 28px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: crimson;
+}
+
+/* =========================
+   HERO BANNER
+========================= */
+
+.hero-banner {
+  height: 500px;
+
+  background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-bottom: 40px;
+
+  position: relative;
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.4)
+    );
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  padding: 60px;
+  max-width: 700px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-form input {
+  width: 350px;
+
+  padding: 14px 16px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(31, 41, 55, 0.7);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.search-form input::placeholder {
+  color: #9ca3af;
+}
+
+.search-form input:focus {
+  border-color: crimson;
+
+  box-shadow:
+    0 0 15px rgba(220, 20, 60, 0.4);
+}
+
+.search-form button {
+  padding: 14px 22px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      crimson,
+      #ff4d6d
+    );
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  font-weight: bold;
+}
+
+.search-form button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(220, 20, 60, 0.3);
+}
+
+/* =========================
+   SEARCH SUGGESTIONS
+========================= */
+
+.suggestions-box {
+  position: absolute;
+
+  top: 60px;
+  left: 0;
+
+  width: 100%;
+
+  background: rgba(31, 41, 55, 0.95);
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  z-index: 100;
+}
+
+.suggestion-item {
+  padding: 12px 15px;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.suggestion-item:hover {
+  background-color: crimson;
+}
+
+/* =========================
+   TRENDING SECTION
+========================= */
+
+.trending-section {
+  margin-top: 50px;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.trending-container {
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+
+  padding-bottom: 15px;
+
+  scrollbar-width: none;
+}
+
+.trending-container::-webkit-scrollbar {
+  display: none;
+}
+
+.trending-container::-webkit-scrollbar-thumb {
+  background-color: crimson;
+  border-radius: 10px;
+}
+
+.trending-card {
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+/* =========================
+   GENRE FILTERS
+========================= */
+
+.genre-container {
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 15px;
+}
+
+.genre-btn {
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: rgba(31, 41, 55, 0.7);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  font-size: 15px;
+}
+
+.genre-btn:hover {
+  background-color: crimson;
+}
+
+.active-genre {
+  background-color: crimson;
+}
+
+/* =========================
+   MOVIES GRID
+========================= */
+
+.movies-container {
+  margin-top: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.movie-card {
+  background: rgba(31, 41, 55, 0.7);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  position: relative;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.4s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 20px 40px rgba(220, 20, 60, 0.25);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-info h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.movie-info p {
+  color: #9ca3af;
+}
+
+/* =========================
+   FAVORITE ICON
+========================= */
+
+.favorite-icon {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
+
+  cursor: pointer;
+}
+
+/* =========================
+   STATUS MESSAGE
+========================= */
+
+.status-message {
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+  font-size: 28px;
+}
+
+/* =========================
+   FAVORITES PAGE
+========================= */
+
+.favorites-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 32px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.85);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  padding: 20px;
+}
+
+.modal-content {
+  background: rgba(17, 24, 39, 0.95);
+
+  backdrop-filter: blur(12px);
+
+  width: 100%;
+  max-width: 900px;
+
+  border-radius: 15px;
+
+  display: flex;
+  gap: 30px;
+
+  padding: 25px;
+
+  position: relative;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+}
+
+.modal-content img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.modal-info {
+  flex: 1;
+  color: white;
+}
+
+.modal-info h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.modal-info p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.close-btn {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  padding: 10px 14px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background-color: crimson;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: rgba(17, 24, 39, 0.7);
+
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+
+  padding: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer p {
+  color: #d1d5db;
+  font-size: 16px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-banner {
+    height: 350px;
+  }
+
+  .hero-content {
+    padding: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .search-form {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-form input,
+  .search-form button {
+    width: 90%;
+  }
+
+  .movies-container {
+    grid-template-columns:
+      repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .movie-card img {
+    height: 250px;
+  }
+
+  .movie-info h3 {
+    font-size: 16px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .modal-info h2 {
+    text-align: center;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .logo h1 {
+    font-size: 24px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .movie-card img {
+    height: 220px;
+  }
+
+  .movie-info {
+    padding: 10px;
+  }
+
+  .movie-info h3 {
+    font-size: 14px;
+  }
+
+  .movie-info p {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+
+.theme-btn {
+  width: 45px;
+  height: 45px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: crimson;
+
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+body.light {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+body.light .main-content {
+  background-color: #f3f4f6;
+}
+
+body.light .header,
+body.light .footer,
+body.light .movie-card,
+body.light .modal-content,
+body.light .search-form input,
+body.light .genre-btn,
+body.light .suggestions-box {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+}
+
+body.light .movie-info h3,
+body.light .modal-info,
+body.light .section-title,
+body.light .favorites-title,
+body.light .status-message,
+body.light .nav-links a,
+body.light .logo h1 {
+  color: #111827;
+}
+
+body.light .movie-info p,
+body.light .modal-info p,
+body.light .hero-content p {
+  color: #4b5563;
+}
+
+body.light .search-form input::placeholder {
+  color: #6b7280;
+}
+
+/* =========================
+   TRAILER BUTTON
+========================= */
+
+.trailer-btn {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 14px 22px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      crimson,
+      #ff4d6d
+    );
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.trailer-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(220, 20, 60, 0.3);
+}
